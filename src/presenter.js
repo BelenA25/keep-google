@@ -1,5 +1,4 @@
-import sumar from "./sumador";
-import multiplicar from "./multiplicador";
+import { Nota } from './mostrador.js';
 
 const titulo = document.querySelector("#titulo");
 const descripcion = document.querySelector("#descripcion");
@@ -10,9 +9,9 @@ const form = document.querySelector("#message-form");
 form.addEventListener("submit", (event) => {
   event.preventDefault();
 
-  div.innerHTML = "titulo: " +  titulo.value;
-  div2.innerHTML = "descripcion: " + descripcion.value;
+  const nota = new Nota(titulo.value, descripcion.value);
 
-
+  div.innerHTML = "titulo: " + nota.getTitulo();
+  div2.innerHTML = "descripcion: " + nota.getDescripcion();
 });
 

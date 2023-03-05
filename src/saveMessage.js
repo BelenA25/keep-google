@@ -1,6 +1,6 @@
 function guardarMensaje() {
 
-    var mensajeGuardado;
-    mensajeGuardado = document.getElementById("message").value;
-    
-  }
+  var mensajeGuardado;
+  mensajeGuardado = document.getElementById("message").value;
+
+}
