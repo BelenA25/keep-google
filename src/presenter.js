@@ -13,11 +13,27 @@ form.addEventListener("submit", (event) => {
 
   const nota = new Nota(titulo.value, descripcion.value);
   notas.aniadirNota(nota);
+
   for (let i = 0; i < notas.getTamanio(); i++) 
   {
-    div.innerHTML = "titulo: " + notas.getListaNotas()[i].getTitulo();
-    div2.innerHTML = "descripcion: " + notas.getListaNotas()[i].getDescripcion();
+    const newDiv = document.createElement("div");
+    const newDiv2 = document.createElement("div2");
 
+    const newContentTitulo = document.createTextNode("titulo: " + notas.getListaNotas()[i].getTitulo());
+    const newContentDescripcion = document.createTextNode("descripcion: " + notas.getListaNotas()[i].getDescripcion());
+    
+    newDiv.appendChild(newContentTitulo);
+    newDiv2.appendChild(newContentDescripcion);
+
+    const currentDiv = document.getElementById("message-div");
+    const currentDiv2 = document.getElementById("message2-div");
+
+    currentDiv.insertBefore(newDiv, currentDiv);
+    currentDiv2.insertBefore(newDiv2, currentDiv2);
+    // document.getElementById("#message-div").appendChild(div);
+    // div.innerHTML = "titulo: " + notas.getListaNotas()[i].getTitulo();
+    // div2.innerHTML = "descripcion: " + notas.getListaNotas()[i].getDescripcion();
+    // document.body.innerHTML += ''
   }
   
 });
