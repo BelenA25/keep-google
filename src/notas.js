@@ -13,39 +13,29 @@ export class ListaNotas{
         return this.notas.length;
     }
     mostrarNotas(){
+        const tituloDiv = document.getElementById("message-div");
+        const descripcionDiv = document.getElementById("message2-div");
       
-        const newDiv = document.createElement("div");
-        const newDiv2 = document.createElement("div");
+        tituloDiv.innerHTML = '';
+        descripcionDiv.innerHTML = '';
       
-        const currentDiv = document.getElementById("message-div");
-        const currentDiv2 = document.getElementById("message2-div");
-
-
-      
-        for (let i = 0; i < this.getTamanio(); i++) 
-        {
+        for (let i = 0; i < this.getTamanio(); i++) {
           const newContentTitulo = document.createTextNode("titulo: " + this.notas[i].getTitulo());
           const newContentDescripcion = document.createTextNode("descripcion: " + this.notas[i].getDescripcion());
-          
-          newDiv.appendChild(newContentTitulo);
-          newDiv2.appendChild(newContentDescripcion);
       
-          const tituloDiv = document.createElement("div");
-          const descripcionDiv = document.createElement("div");
+          const notaDiv = document.createElement("div");
+          const tituloSpan = document.createElement("span");
+          const descripcionSpan = document.createElement("span");
       
-          tituloDiv.appendChild(newContentTitulo);
-          descripcionDiv.appendChild(newContentDescripcion);
+          tituloSpan.appendChild(newContentTitulo);
+          descripcionSpan.appendChild(newContentDescripcion);
       
-          newDiv.appendChild(tituloDiv);
-          newDiv2.appendChild(descripcionDiv);
-
-
-
+          notaDiv.appendChild(tituloSpan);
+          notaDiv.appendChild(descripcionSpan);
+      
+          tituloDiv.appendChild(tituloSpan.cloneNode(true));
+          descripcionDiv.appendChild(descripcionSpan.cloneNode(true));
         }
-        currentDiv.innerHTML = '';
-        currentDiv2.innerHTML = '';
-        
-        currentDiv.appendChild(newDiv);
-        currentDiv2.appendChild(newDiv2);
-    }
+      }
+      
 }
