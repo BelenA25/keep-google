@@ -41,8 +41,13 @@ formEliminar.addEventListener("submit", (event) => {
 
   const notaAEliminar = notas.buscar(eliminar.value);
 
-  console.log(notaAEliminar)
-  notas.eliminarNota(notaAEliminar);
+  if(notaAEliminar){
+    notas.eliminarNota(notaAEliminar);
+  }
+  else{
+    alert("La nota no se encontró en la lista.");
+  }
+  
 
 
   notas.mostrarNotas();
