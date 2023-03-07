@@ -27,12 +27,12 @@ form2.addEventListener("submit", (event) => {
 
   if (notaEncontrada) {
     const tituloDiv = document.getElementById("message-div");
-    //const descripcionDiv = document.getElementById("message2-div");
+    const descripcionDiv = document.getElementById("message2-div");
     
     tituloDiv.innerHTML = 'Título encontrado:' + notaEncontrada.getTitulo();
-    //descripcionDiv.innerHTML = 'Descripción Encontrada: ' + notaEncontrada.getDescripcion();
+    descripcionDiv.innerHTML = 'Descripción Encontrada: ' + notaEncontrada.getDescripcion();
   } else {
-   
+  
     alert("La nota no se encontró en la lista.");
   }
 
