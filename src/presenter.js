@@ -5,24 +5,23 @@ const titulo = document.querySelector("#titulo");
 const descripcion = document.querySelector("#descripcion");
 const form = document.querySelector("#message-form");
 const formBuscador = document.querySelector("#buscador-form");
-const form3 = document.querySelector("#eliminar-form");
+const formEliminar = document.querySelector("#eliminar-form");
 const notas = new ListaNotas();
 const busqueda = document.querySelector("#buscador");
+const eliminar = document.querySelector("#eliminador");
 form.addEventListener("submit", (event) => {
   event.preventDefault();
 
-  
   const nota = new Nota(titulo.value, descripcion.value);
   notas.aniadirNota(nota);
   notas.mostrarNotas();
-
 
 });
 
 formBuscador.addEventListener("submit", (event) => {
   event.preventDefault();
 
-  const notaEncontrada = notas.buscarPorTitulo(busqueda.value);
+  const notaEncontrada = notas.buscar(busqueda.value);
 
   if (notaEncontrada) {
     const tituloDiv = document.getElementById("resultadoTitulo");
@@ -30,17 +29,21 @@ formBuscador.addEventListener("submit", (event) => {
     
     tituloDiv.innerHTML = 'Título encontrado:' + notaEncontrada.getTitulo();
     descripcionDiv.innerHTML = 'Descripción Encontrada: ' + notaEncontrada.getDescripcion();
-  } else {
+  } 
+  else {
   
     alert("La nota no se encontró en la lista.");
   }
 
 });
-form3.addEventListener("submit", (event) => {
+formEliminar.addEventListener("submit", (event) => {
   event.preventDefault();
-  const notaAEliminar = notas.buscarPorTitulo(titulo.value);
 
+  const notaAEliminar = notas.buscar(eliminar.value);
+
+  console.log(notaAEliminar)
   notas.eliminarNota(notaAEliminar);
+
 
   notas.mostrarNotas();
 

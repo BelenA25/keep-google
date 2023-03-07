@@ -37,10 +37,10 @@ export class ListaNotas{
           descripcionDiv.appendChild(descripcionSpan.cloneNode(true));
         }
       }
-    buscarPorTitulo(titulo) {
+    buscar(valor) {
         
       for (let i = 0; i < this.notas.length; i++) {
-        if (titulo == this.notas[i].getTitulo()) {
+        if (valor == this.notas[i].getTitulo() || valor == this.notas[i].getDescripcion()) {
            return this.notas[i];
         }
       }
