@@ -37,5 +37,14 @@ export class ListaNotas{
           descripcionDiv.appendChild(descripcionSpan.cloneNode(true));
         }
       }
+    buscarPorTitulo(titulo) {
+        
+      for (let i = 0; i < this.notas.length; i++) {
+        if (titulo == this.notas[i].getTitulo()) {
+           return this.notas[i];
+        }
+      }
+      return null;
+    }
       
 }
