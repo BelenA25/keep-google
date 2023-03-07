@@ -5,7 +5,7 @@ const titulo = document.querySelector("#titulo");
 const descripcion = document.querySelector("#descripcion");
 const form = document.querySelector("#message-form");
 const form2 = document.querySelector("#buscador-form");
-//const form3 = document.querySelector("#eliminar-form");
+const form3 = document.querySelector("#eliminar-form");
 const notas = new ListaNotas();
 const busqueda = document.querySelector("#buscador");
 form.addEventListener("submit", (event) => {
@@ -36,4 +36,14 @@ form2.addEventListener("submit", (event) => {
     alert("La nota no se encontró en la lista.");
   }
 
+});
+form3.addEventListener("submit", (event) => {
+  event.preventDefault();
+  const notaAEliminar = notas.buscarPorTitulo(titulo.value);
+
+  notas.eliminarNota(notaAEliminar);
+
+  notas.mostrarNotas();
+
+  
 });

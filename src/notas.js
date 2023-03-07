@@ -46,5 +46,11 @@ export class ListaNotas{
       }
       return null;
     }
+    eliminarNota(nota) {
+      const index = this.notas.indexOf(nota);
+      if (index !== -1) {
+        this.notas.splice(index, 1);
+      }
+    }
       
 }
